@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-orange-600">
+    <div class="flex items-center justify-center h-screen">
+        <div class="border-slate-200 border-4 rounded-2xl w-1/3 h-2/3 bg-white p-2 justify-center flex flex-col">
+            <div class="justify-center text-center">
+                <p class="m-6 text-3xl font-bold text-black">Register</p>
+                <hr class="border-2">
+                <br>
+                <form>
+                    <label for="register-username">Username:</label>
+                    <input type="text" id="register-username" name="register-username" class="border-2 border-slate-200 rounded-lg" required>
+                    <br>
+                    <br>
+                    <label for="register-password">Password:</label>
+                    <input type="password" id="register-password" name="register-password" class="border-2 border-slate-200 rounded-lg" required>
+                    <br>
+                    <br>
+                    <button class="border-2 border-slate-200 rounded-lg pl-3 pr-3" type="submit">Register</button>
+                    <br>
+                    <br>
+                </form>
+                <a class="text-slate-400 mt-auto underline" href="login.html">Login Instead</a>
+            </div>
+        </div>
+    </div>
+</body>
