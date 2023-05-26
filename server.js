@@ -1,11 +1,13 @@
 const http = require('http');
 const express = require("express");
+const { stringify } = require('querystring');
 const app = express();
+const bcrypt = require("bcrypt")
 app.use(express.urlencoded({extended:true}));
-app.post("/submit", (req, res) => {
+app.post("/submit", async (req, res) => {
     console.log("submissive and dependable");
     const username = req.body.registerusername;
-    const password = req.body.registerpassword;
+    const password = await bcrypt.hash(req.body.registerpassword, 10);
     console.log('Username:', username);
     console.log('Password:', password);
     // Optionally, you can send a response back to the client
