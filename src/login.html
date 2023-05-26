@@ -14,7 +14,7 @@
                 <p class="m-6 text-3xl font-bold text-black">Login</p>
                 <hr class="border-2">
                 <br>
-                <form>
+                <form id="loginform">
                     <label for="login-username">Username:</label>
                     <input type="text" id="login-username" name="login-username" class="border-2 border-slate-200 rounded-lg" required>
                     <br>
@@ -28,7 +28,7 @@
                     <br>
                 </form>
                 <script>
-                    const form = document.getElementById("registerform")
+                    const form = document.getElementById("loginform")
                     form.addEventListener("submit", function(event) {
                         event.preventDefault();
                         console.log(document.getElementById("login-password").value);
