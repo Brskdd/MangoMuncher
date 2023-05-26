@@ -14,7 +14,7 @@
                 <p class="m-6 text-3xl font-bold text-black">Register</p>
                 <hr class="border-2">
                 <br>
-                <form>
+                <form id="registerform">
                     <label for="register-username">Username:</label>
                     <input type="text" id="register-username" name="register-username" class="border-2 border-slate-200 rounded-lg" required>
                     <br>
@@ -27,6 +27,14 @@
                     <br>
                     <br>
                 </form>
+                <script>
+                    const form = document.getElementById("registerform")
+                    form.addEventListener("submit", function(event) {
+                        event.preventDefault();
+                        console.log(document.getElementById("register-password").value);
+                        console.log(document.getElementById("register-username").value);
+                    }) 
+                </script>
                 <a class="text-slate-400 mt-auto underline" href="login.html">Login Instead</a>
                 <br>
                 <a class="text-slate-400 mt-auto underline" href="index.html">Main Page</a>

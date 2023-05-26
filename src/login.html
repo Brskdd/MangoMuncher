@@ -20,13 +20,21 @@
                     <br>
                     <br>
                     <label for="login-password">Password:</label>
-                    <input type="password" id="login-password" name="log-password" class="border-2 border-slate-200 rounded-lg" required>
+                    <input type="password" id="login-password" name="login-password" class="border-2 border-slate-200 rounded-lg" required>
                     <br>
                     <br>
                     <button class="border-2 border-slate-200 rounded-lg pl-3 pr-3" type="submit">Login</button>
                     <br>
                     <br>
                 </form>
+                <script>
+                    const form = document.getElementById("registerform")
+                    form.addEventListener("submit", function(event) {
+                        event.preventDefault();
+                        console.log(document.getElementById("login-password").value);
+                        console.log(document.getElementById("login-username").value);
+                    }) 
+                </script>
                 <a class="text-slate-400 mt-auto underline" href="register.html">Register Instead</a>
                 <br>
                 <a class="text-slate-400 mt-auto underline" href="index.html">Main Page</a>
