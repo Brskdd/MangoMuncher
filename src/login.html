@@ -14,7 +14,7 @@
                 <p class="m-6 text-3xl font-bold text-black">Login</p>
                 <hr class="border-2">
                 <br>
-                <form id="loginform">
+                <form id="loginform" action="http://localhost:3000/login/submit" method="POST">
                     <label for="login-username">Username:</label>
                     <input type="text" id="login-username" name="login-username" class="border-2 border-slate-200 rounded-lg" required>
                     <br>
@@ -23,18 +23,10 @@
                     <input type="password" id="login-password" name="login-password" class="border-2 border-slate-200 rounded-lg" required>
                     <br>
                     <br>
-                    <button class="border-2 border-slate-200 rounded-lg pl-3 pr-3" type="submit">Login</button>
+                    <button name="loginsubmit" class="border-2 border-slate-200 rounded-lg pl-3 pr-3" type="submit">Login</button>
                     <br>
                     <br>
                 </form>
-                <script>
-                    const form = document.getElementById("loginform")
-                    form.addEventListener("submit", function(event) {
-                        event.preventDefault();
-                        console.log(document.getElementById("login-password").value);
-                        console.log(document.getElementById("login-username").value);
-                    }) 
-                </script>
                 <a class="text-slate-400 mt-auto underline" href="register.html">Register Instead</a>
                 <br>
                 <a class="text-slate-400 mt-auto underline" href="index.html">Main Page</a>
