@@ -1,5 +1,12 @@
 {
-  "a": "$2b$10$vWOofGAocKe/MLTGdfRV9eeLqGBcLjvGYCQLHaDZr6sk9IqTaz6TC",
-  "c": "$2b$10$kJoSQGYDTmd1y.2nXlEvRug/r6i3rDUhy2LuS5VuA0R6DVZ0NNuj6",
-  "e": "$2b$10$We1itkxKjNVsCpYA2PbjsuJTL5Hx5K3nlBBh5Pjjxgu18ycN7pEAe"
+  "a": [
+    {
+      "password": "$2b$10$CavbFvj3VwwThd/stRRUAOqardmit9uNH4f9v1YJjnod6mGY0B97e"
+    }
+  ],
+  "c": [
+    {
+      "password": "$2b$10$w35qro1V2aLBjI53/elZKeRVeyecUJzhb3eLBOue7W4mPoS0F4ebW"
+    }
+  ]
 }

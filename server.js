@@ -32,7 +32,9 @@ app.post("/register/submit", async (req, res) => {
             }
         }
         if (accounts[username] == undefined) {
-            accounts[username] = password;
+            accounts[username] = [
+                {"password" : password}
+            ];
 
             fs.writeFile("database/accounts.json", JSON.stringify(accounts, null, 2), err => {
                 if (err) {
@@ -57,6 +59,8 @@ app.post("/login/submit", async (req, res) => {
     //console.log('Password:', password);
     console.log(req.body);
 
+
+    
     // Optionally, you can send a response back to the client
     res.send('Form data received successfully!');
 });
