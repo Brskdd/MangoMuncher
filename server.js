@@ -3,7 +3,8 @@ const express = require("express");
 const fs = require("fs");
 const { stringify } = require('querystring');
 const app = express();
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const path = require("path");
 app.use(express.urlencoded({ extended: true }));
 
 app.post("/register/submit", async (req, res) => {
@@ -55,8 +56,7 @@ app.post("/login/submit", async (req, res) => {
     console.log("login submit");
     const username = req.body.loginusername;
     const password = await bcrypt.hash(req.body.loginpassword, 10);
-    console.log('Username:', username);
-    console.log('Password:', password);
+   
     //console.log(req.body.loginpassword, ", ", req.body.loginusername);
 
     fs.readFile("database/accounts.json", "utf-8", (err, data) => {
@@ -91,6 +91,8 @@ app.post("/login/submit", async (req, res) => {
                 }
                 console.log("acct found, ", result);
                 //redirect user to actual app now
+                res.cookie("username", username);
+                res.redirect("/userpage");
             })
             
         }
@@ -98,6 +100,11 @@ app.post("/login/submit", async (req, res) => {
     });
     
 
+});
+
+app.get("/userpage", (req, res) => {
+    const filepath = path.join(__dirname, "/src", "userpage.html");
+    res.sendFile(filepath);
 });
 
 const port = 3000;
