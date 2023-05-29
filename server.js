@@ -90,6 +90,7 @@ app.post("/login/submit", async (req, res) => {
 
                 }
                 console.log("acct found, ", result);
+                //redirect user to actual app now
             })
             
         }
