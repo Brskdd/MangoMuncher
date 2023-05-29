@@ -53,16 +53,50 @@ app.post("/register/submit", async (req, res) => {
 
 app.post("/login/submit", async (req, res) => {
     console.log("login submit");
-    const username = req.body.registerusername;
-    const password = await bcrypt.hash(req.body.registerpassword, 10);
-    //console.log('Username:', username);
-    //console.log('Password:', password);
-    console.log(req.body);
+    const username = req.body.loginusername;
+    const password = await bcrypt.hash(req.body.loginpassword, 10);
+    console.log('Username:', username);
+    console.log('Password:', password);
+    //console.log(req.body.loginpassword, ", ", req.body.loginusername);
+
+    fs.readFile("database/accounts.json", "utf-8", (err, data) => {
+        if (err) {
+            console.log("error reading accounts");
+            return res.status(500).send('Error reading JSON file');
+        }
 
 
+
+        let accounts = {};
+        if (data) {
+            try {
+                accounts = JSON.parse(data);
+            } catch (err) {
+                console.error(err);
+                return res.status(500).send('Error parsing JSON file');
+            }
+        }
+        if (accounts[username] == undefined) {
+            res.send("incorrect login")
+        } else {
+            console.log(accounts[username][0].password);
+            bcrypt.compare(req.body.loginpassword, accounts[username][0].password, (err, result) => {
+                if (err) {
+
+                }
+                if (result) {
+
+                } else {
+
+                }
+                console.log("acct found, ", result);
+            })
+            
+        }
+        
+    });
     
-    // Optionally, you can send a response back to the client
-    res.send('Form data received successfully!');
+
 });
 
 const port = 3000;
