@@ -3,6 +3,9 @@
 
 <head>
     <title>User Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -20,7 +23,24 @@
         username = getCookieValue("username");
         console.log(username);
     </script>
-    
+    <div class="bg-gradient-to-b from-orange-400 to-orange-700 h-screen flex">
+        <div class="flex-grow">
+            <div class="h-screen w-screen flex">
+
+            </div>
+            <br>
+            <!--Header-->
+            <div class="top-0 fixed w-full h-10 bg-slate-800 flex items-center shadow-md">
+                <img class="p-2 h-10 shadow-2xl"
+                    src="https://static.vecteezy.com/system/resources/previews/015/100/086/original/mango-transparent-background-free-png.png">
+                <a href="index" class="font-semibold font-sans text-white h-full text-center m-1">Mango Muncher</a>
+            </div>
+            <!--footer-->
+            <div class="bottom-0 w-full h-20 bg-slate-800 flex items-center justify-center">
+                <p class="text-slate-300 font-sans text-center">Made by Brskdd</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
