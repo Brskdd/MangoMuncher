@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>User Page</title>
-    </head>
-    <body>
-        <script>
-            function getCookie(name) {
-                const cookies = document.cookie.split(';')
-                console.log(cookies)
+
+<head>
+    <title>User Page</title>
+</head>
+
+<body>
+    <script>
+        function getCookieValue(cookieName) {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith(cookieName + '=')) {
+                    return cookie.substring(cookieName.length + 1);
+                }
             }
-            getCookie("a");
-        </script>
-        <p>;kaesdr;lfhknmdl;</p>
-    </body>
+            return '';
+        }
+        username = getCookieValue("username");
+        console.log(username);
+    </script>
+    
+</body>
+
 </html>
