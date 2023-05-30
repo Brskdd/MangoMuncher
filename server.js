@@ -106,6 +106,22 @@ app.get("/userpage", (req, res) => {
     const filepath = path.join(__dirname, "/src", "userpage.html");
     res.sendFile(filepath);
 });
+app.get("/register", (req, res) => {
+    const filepath = path.join(__dirname, "/src", "register.html");
+    res.sendFile(filepath);
+});
+app.get("/login", (req, res) => {
+    const filepath = path.join(__dirname, "/src", "login.html");
+    res.sendFile(filepath);
+});
+app.get("", (req, res) => {
+    const filepath = path.join(__dirname, "/src", "index.html");
+    res.sendFile(filepath);
+});
+app.get("/index", (req, res) => {
+    const filepath = path.join(__dirname, "/src", "index.html");
+    res.sendFile(filepath);
+});
 
 const port = 3000;
 app.listen(port, () => {
