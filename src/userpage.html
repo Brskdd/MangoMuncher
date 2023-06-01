@@ -9,16 +9,16 @@
     <script>
         function getlocaltime() {
             var date = new Date();
-            document.getElementById("cum").textContent = (date.getMonth() + 1) + "-" + date.getDate() + ", " + date.toLocaleTimeString();
+            document.getElementById("datetime").textContent = (date.getMonth() + 1) + "-" + date.getDate() + ", " + date.toLocaleTimeString();
         }
-        function alltheshit() {
+        function allthestuff() {
             getlocaltime();
             setInterval(getlocaltime,100);
         }
     </script>
 </head>
 
-<body onload="alltheshit()">
+<body onload="allthestuff()">
     <script>
         function getCookieValue(cookieName) {
             const cookies = document.cookie.split(';');
@@ -39,7 +39,7 @@
                 
             </div>
             <br>
-            <p id="cum" class="text-white font-bold text-4xl">aaaaa</p>
+            <p id="datetime" class="text-white font-bold text-4xl">aaaaa</p>
 
 
 
