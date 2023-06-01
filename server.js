@@ -111,7 +111,7 @@ app.get("/register", (req, res) => {
     const filepath = path.join(__dirname, "/src", "register.html");
     res.sendFile(filepath);
 });
-app.get("/addtask/submit", (req, res) => {
+app.post("/addtask/submit", (req, res) => {
     res.send("add task form sent");
     //do code for when user wants to add task
 });
