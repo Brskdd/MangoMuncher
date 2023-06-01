@@ -7,20 +7,6 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        var windowCount = 0;
-        function getlocaltime() {
-            var date = new Date();
-            document.getElementById("datetime").textContent = (date.getMonth() + 1) + "-" + date.getDate() + ", " + date.toLocaleTimeString();
-        }
-        function allthestuff() {
-            getlocaltime();
-            setInterval(getlocaltime, 100);
-        }
-    </script>
-</head>
-
-<body onload="allthestuff()">
-    <script>
         function getCookieValue(cookieName) {
             const cookies = document.cookie.split(';');
             for (let i = 0; i < cookies.length; i++) {
@@ -31,26 +17,41 @@
             }
             return '';
         }
-        username = getCookieValue("username");
-        console.log(username);
+
+        function welcomedisplay() {
+            var date = new Date();
+            document.getElementById("welcomedisplay").textContent = (date.getMonth() + 1) + "-" + date.getDate() + ", " + date.toLocaleTimeString() + " - Welcome " + getCookieValue("username");
+        }
+
+        function allthestuff() {
+            setInterval(welcomedisplay, 100);
+            welcomedisplay();
+        }
     </script>
+</head>
+
+<body onload="allthestuff()">
     <div class="bg-gradient-to-b from-orange-400 to-orange-700 flex flex-col">
         <div class="h-screen p-3">
             <div class="bg-black bg-opacity-20 shadow-lg rounded-md flex-grow flex-shrink-0 p-2 h-48">
 
             </div>
             <br>
-            <p id="datetime" class="text-white font-bold text-4xl">aaaaa</p>
+            <p id="welcomedisplay" class="text-white font-bold text-4xl">lmao if you see this the webpage messed up lol
+            </p>
             <br>
 
             <span>
-                <a class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300" href="index">Add Task</a>
+                <a class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
+                    href="index">Add Task</a>
             </span>
             <span>
-                <a class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300" href="register">testbutton to register</a>
+                <a class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
+                    href="register">testbutton to register</a>
             </span>
             <span>
-                <a class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300" href="login">testbutton to login</a>
+                <a class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
+                    href="login">testbutton to login</a>
             </span>
             <br>
             <br>

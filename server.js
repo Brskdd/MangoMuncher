@@ -92,6 +92,7 @@ app.post("/login/submit", async (req, res) => {
                 console.log("acct found, ", result);
                 //redirect user to actual app now
                 res.cookie("username", username);
+                console.log(username);
                 res.redirect("/userpage");
             })
             
