@@ -18,5 +18,10 @@
     {
       "password": "$2b$10$UzzNuD70VcEDk26OpnZTz.sqrUk0tBn036yhRiLFvUrxRMihiku9O"
     }
+  ],
+  "kill": [
+    {
+      "password": "$2b$10$PWEwuLgzq55Idl6xJs3zS.8nlbmDWtKzhUGsSIuiwtmzPfa34gKGS"
+    }
   ]
 }

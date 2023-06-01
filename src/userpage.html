@@ -18,6 +18,11 @@
             return '';
         }
 
+        function addnewtask() {
+            //code to open add task menu on center of screen
+            document.getElementById("addtaskdiv").style.display = "flex";
+        }
+
         function welcomedisplay() {
             var date = new Date();
             document.getElementById("welcomedisplay").textContent = (date.getMonth() + 1) + "-" + date.getDate() + ", " + date.toLocaleTimeString() + " - Welcome " + getCookieValue("username");
@@ -26,6 +31,7 @@
         function allthestuff() {
             setInterval(welcomedisplay, 100);
             welcomedisplay();
+            document.getElementById("addtaskdiv").style.display = "none";
         }
     </script>
 </head>
@@ -42,16 +48,16 @@
             <br>
 
             <span>
-                <a class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
-                    href="index">Add Task</a>
+                <button class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
+                    onclick="addnewtask()">Add Task</button>
             </span>
             <span>
-                <a class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
-                    href="register">testbutton to register</a>
+                <button class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
+                    href="register">testbutton to register</button>
             </span>
             <span>
-                <a class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
-                    href="login">testbutton to login</a>
+                <button class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
+                    href="login">testbutton to login</button>
             </span>
             <br>
             <br>
@@ -62,6 +68,13 @@
             </div>
         </div>
     </div>
+    <div id="addtaskdiv" class="fixed inset-0 flex items-center justify-center z-50">
+        <div class="w-80 h-40 bg-white rounded-lg shadow-lg">
+          <form id="addtaskform" action="http://localhost:3000/addtask/submit" method="POST">
+            <button name="addtasksubmit" class="border-2 border-slate-200 rounded-lg pl-3 pr-3" type="submit">Register</button>
+          </form>
+        </div>
+      </div>
 </body>
 
 </html>
