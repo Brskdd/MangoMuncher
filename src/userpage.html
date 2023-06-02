@@ -99,12 +99,16 @@
                     required>
                 <br>
                 <br>
-                
+                <input type="hidden" name="addtaskusername" id="addtaskusername">
 
                 <button name="addtasksubmit" class="border-2 border-slate-200 rounded-lg pl-3 pr-3"
                     type="submit">Add</button>
                 <button type="button" name="addtaskcancel" onclick="addnewtaskclose()" class="border-2 border-slate-200 rounded-lg pl-3 pr-3">Cancel</button>
             </form>
+            <script>
+                const usernamesubmit = document.getElementById("addtaskusername");
+                usernamesubmit.value = getCookieValue("username")
+            </script>
         </div>
     </div>
 
