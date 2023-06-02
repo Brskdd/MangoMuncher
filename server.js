@@ -137,7 +137,13 @@ app.post("/addtask/submit", (req, res) => {
                     if (data) {
                         userdata = JSON.parse(data);
                         userdata.tasks.push(req.body);
-                        console.log("userdata: " + userdata);
+                        console.log("userdata: ", userdata);
+                        fs.writeFile("database/users/" + req.body.addtaskusername + ".json", JSON.stringify(userdata), (err) => {
+                            if (err) {
+                                console.log("error adding task", err);
+                                return;
+                            }
+                        })
                     }
                 });
             });
