@@ -34,7 +34,7 @@ app.post("/register/submit", async (req, res) => {
         }
         if (accounts[username] == undefined) {
             accounts[username] = [
-                {"password" : password}
+                { "password": password }
             ];
 
             fs.writeFile("database/accounts.json", JSON.stringify(accounts, null, 2), err => {
@@ -42,12 +42,13 @@ app.post("/register/submit", async (req, res) => {
                     console.log("error");
                     return;
                 }
-                res.send("wow congrats it actually worked");
+
+                res.redirect("/login");
             });
         } else {
             res.send("username already taken");
         }
-        
+
     });
     // Optionally, you can send a response back to the client
 });
@@ -56,7 +57,7 @@ app.post("/login/submit", async (req, res) => {
     console.log("login submit");
     const username = req.body.loginusername;
     const password = await bcrypt.hash(req.body.loginpassword, 10);
-   
+
     //console.log(req.body.loginpassword, ", ", req.body.loginusername);
 
     fs.readFile("database/accounts.json", "utf-8", (err, data) => {
@@ -95,11 +96,11 @@ app.post("/login/submit", async (req, res) => {
                 console.log(username);
                 res.redirect("/userpage");
             })
-            
+
         }
-        
+
     });
-    
+
 
 });
 

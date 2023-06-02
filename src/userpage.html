@@ -23,6 +23,10 @@
             document.getElementById("addtaskdiv").style.display = "flex";
         }
 
+        function addnewtaskclose() {
+            document.getElementById("addtaskdiv").style.display = "none";
+        }
+
         function welcomedisplay() {
             var date = new Date();
             document.getElementById("welcomedisplay").textContent = (date.getMonth() + 1) + "-" + date.getDate() + ", " + date.toLocaleTimeString() + " - Welcome " + getCookieValue("username");
@@ -71,13 +75,35 @@
 
     <!--Register div-->
     <div id="addtaskdiv" class="fixed inset-0 flex items-center justify-center z-50">
-        <div class="w-80 h-40 bg-white rounded-lg shadow-lg">
+        <div class="w-80 bg-white rounded-lg shadow-lg p-2">
             <form id="addtaskform" action="http://localhost:3000/addtask/submit" method="POST">
+                <p class="font-bold text-lg text-center">Add Task</p>
+                <hr class="m-3">
+                <label for="addtaskname">Task Name:</label>
+                <input type="text" id="addtaskname" name="addtaskname" class="border-2 border-slate-200 rounded-lg"
+                    required>
+                <br>
+                <br>
+                <label for="addtaskdatetime">Due Date:</label>
+                <input type="datetime-local" id="addtaskdatetime" name="addtaskdatetime" class="border-2 border-slate-200 rounded-lg"
+                    required>
+                <br>
+                <br>
+                <label for="addtaskpoints">Points:</label>
+                <input type="number" id="addtaskpoints" name="addtaskpoints" class="border-2 border-slate-200 rounded-lg"
+                    required>
+                <br>
+                <br>
+                
+
                 <button name="addtasksubmit" class="border-2 border-slate-200 rounded-lg pl-3 pr-3"
                     type="submit">Add</button>
+                <button type="button" name="addtaskcancel" onclick="addnewtaskclose()" class="border-2 border-slate-200 rounded-lg pl-3 pr-3">Cancel</button>
             </form>
         </div>
     </div>
+
+
 </body>
 
 </html>

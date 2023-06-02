@@ -3,3 +3,6 @@ actually make add task form
  - points
  - effort
  - time to complete
+ - tags
+ add description to what to put in the add task fields with one of those cool question mark in circle thingies
+ potentially make the addtaskclose function can be used for all the buttons

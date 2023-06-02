@@ -23,5 +23,25 @@
     {
       "password": "$2b$10$PWEwuLgzq55Idl6xJs3zS.8nlbmDWtKzhUGsSIuiwtmzPfa34gKGS"
     }
+  ],
+  "testuser": [
+    {
+      "password": "$2b$10$2hGWIRSkw6.sHP.c5DXpw.38OcRAKMF.Wcg6HUSE/g8R5TuAA7N2m"
+    }
+  ],
+  "q": [
+    {
+      "password": "$2b$10$7Y9vevv3dMY/Fs8eLRSxi.xyzLSzV1KUdIdhzVQw2Op2PBEWv5be2"
+    }
+  ],
+  "ur": [
+    {
+      "password": "$2b$10$dgyk5FkNADYFf2NkyEq/CehovCUIG4vTxSAc.AvrA7q3CuXgEz4ym"
+    }
+  ],
+  "adsfdafhdaf": [
+    {
+      "password": "$2b$10$giHVrzRuudyd45E.U6cRSerezQaAj4k5Q7wxm80aNta/ysvdznWZO"
+    }
   ]
 }
