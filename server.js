@@ -113,7 +113,7 @@ app.get("/register", (req, res) => {
     res.sendFile(filepath);
 });
 app.post("/addtask/submit", (req, res) => {
-    res.send("add task form sent");
+    res.send(req.body.addtaskname);
     //do code for when user wants to add task
 });
 app.get("/login", (req, res) => {
