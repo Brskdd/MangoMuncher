@@ -4,8 +4,10 @@ actually make add task formX
  - effortX
  - time to complete
  - tags
+ - exhaustion rate
  add description to what to put in the add task fields with one of those cool question mark in circle thingies
  potentially make the addtaskclose function can be used for all the buttons
  make system to save data on add task
  - grab user file
  - store in "tasks" list
+ - fix server code to add task rn it only creats template file for user

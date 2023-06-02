@@ -43,5 +43,15 @@
     {
       "password": "$2b$10$giHVrzRuudyd45E.U6cRSerezQaAj4k5Q7wxm80aNta/ysvdznWZO"
     }
+  ],
+  "charles": [
+    {
+      "password": "$2b$10$narbaMdAMHB8c2tPyNO1N.4UaU.2pqmI2xMIUVDKh.NbNaut31WjC"
+    }
+  ],
+  "Peter": [
+    {
+      "password": "$2b$10$EqO.V8heKtepRNHHRbJWZ.qw.AA/USwdkXV8x6AXMB5ujaGO3KZWO"
+    }
   ]
 }

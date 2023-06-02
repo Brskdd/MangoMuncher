@@ -114,6 +114,39 @@ app.get("/register", (req, res) => {
 });
 app.post("/addtask/submit", (req, res) => {
     res.send(req.body);
+    fs.access("database/users/" + req.body.addtaskusername, fs.constants.F_OK, (err) => {
+        if (err) {
+            //file does not exist
+            let userdatatemplate = {
+                "tasks": [
+
+                ]
+            }
+
+            console.log(userdatatemplate);
+            fs.writeFile("database/users/" + req.body.addtaskusername + ".json", JSON.stringify(userdatatemplate), (err) => {
+                if (err) {
+                    console.log("error creating user data file:", err);
+                    return;
+                }
+                console.log("User data file created successfully!");
+                fs.readFile("database/users/" + req.body.addtaskusername + ".json", "utf-8", (err, data) => {
+                    if (err) {
+                        console.log("error reading accounts");
+                    }
+                    if (data) {
+                        userdata = JSON.parse(data);
+                        userdata.tasks.push(req.body);
+                        console.log("userdata: " + userdata);
+                    }
+                });
+            });
+        } else {
+            //file exists
+        }
+
+
+    });
     //do code for when user wants to add task
 });
 app.get("/login", (req, res) => {
