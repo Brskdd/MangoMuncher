@@ -5,15 +5,24 @@ actually make add task formX
  - time to complete
  - tags
  - exhaustion rate
- add description to what to put in the add task fields with one of those cool question mark in circle thingies
- potentially make the addtaskclose function can be used for all the buttons
- make system to save data on add task
+add description to what to put in the add task fields with one of those cool question mark in circle thingies
+potentially make the addtaskclose function can be used for all the buttons
+make system to save data on add task
  - grab user fileX
  - store in "tasks" listX
  - fix server code to add task rn it only creats template file for userX
  - server now works on creating file add code for when adding task to preexisting fileX
  - make sure that someone cant add a new task with the same name as one that already exists
- load tasks onto webpageX
+load tasks onto webpageX
  - found the problem, cannot GET json fileX
    - fix by adding in system to when it requests from database/users it actually worksX
    - server now recognizes when client is asking for database/users/XXX.json file and what XXX isX
+add functionality to sort tasks by reccomended, due next, most points, etc
+turn usertask data into like actual good looking stuff instead of the raw json
+ - would look like this
+   - XXXXXXXXXXXXXXXXX
+   - X     study     X
+   - X   due in:5h   X
+   - X     2hrs      X
+   - X     20 pts    X
+   - XXXXXXXXXXXXXXXXX
