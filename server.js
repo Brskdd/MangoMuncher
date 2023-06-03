@@ -174,6 +174,20 @@ app.post("/addtask/submit", (req, res) => {
 
     });
 });
+
+//code for when the frontend requests a users/XXX.json file
+app.get("/database/users/:username.json", (req, res) => {
+    const { username } = req.params;
+    console.log("client requesting ", username);
+    const filepath = path.join(__dirname, "/database/users", `${username}.json`);
+    res.sendFile(filepath, (err) => {
+        if (err) {
+            res.status(404).send("File not found");
+        }
+    });
+});
+
+
 app.get("/login", (req, res) => {
     const filepath = path.join(__dirname, "/src", "login.html");
     res.sendFile(filepath);

@@ -68,12 +68,27 @@
             <p class="text-white font-bold text-4xl">Recommended For You</p>
             <br>
             <div class="bg-opacity-20 rounded-md bg-black p-3">
+                <!--load tasks here-->
+                <!--script to load user tasks-->
 
+                <p id="usertasks">test</p>
+                <script>
+                    fetch("/database/users/" + getCookieValue("username") + ".json")
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById("usertasks").textContent = JSON.stringify(data);
+                        })
+                        .catch(error => {
+                            console.error('Error fetching user tasks:', error);
+                        });
+                </script>
             </div>
         </div>
     </div>
 
-    <!--Register div-->
+
+
+    <!--Add Task div-->
     <div id="addtaskdiv" class="fixed inset-0 flex items-center justify-center z-50">
         <div class="w-80 bg-white rounded-lg shadow-lg p-2">
             <form id="addtaskform" action="http://localhost:3000/addtask/submit" method="POST">
@@ -85,25 +100,26 @@
                 <br>
                 <br>
                 <label for="addtaskdatetime">Due Date:</label>
-                <input type="datetime-local" id="addtaskdatetime" name="addtaskdatetime" class="border-2 border-slate-200 rounded-lg"
-                    required>
+                <input type="datetime-local" id="addtaskdatetime" name="addtaskdatetime"
+                    class="border-2 border-slate-200 rounded-lg" required>
                 <br>
                 <br>
                 <label for="addtaskpoints">Points:</label>
-                <input type="number" id="addtaskpoints" name="addtaskpoints" class="border-2 border-slate-200 rounded-lg"
-                    required>
+                <input type="number" id="addtaskpoints" name="addtaskpoints"
+                    class="border-2 border-slate-200 rounded-lg" required>
                 <br>
                 <br>
                 <label for="addtasklength">Hours To Complete:</label>
-                <input type="number" id="addtasklength" name="addtasklength" class="border-2 border-slate-200 rounded-lg"
-                    required>
+                <input type="number" id="addtasklength" name="addtasklength"
+                    class="border-2 border-slate-200 rounded-lg" required>
                 <br>
                 <br>
                 <input type="hidden" name="addtaskusername" id="addtaskusername">
 
                 <button name="addtasksubmit" class="border-2 border-slate-200 rounded-lg pl-3 pr-3"
                     type="submit">Add</button>
-                <button type="button" name="addtaskcancel" onclick="addnewtaskclose()" class="border-2 border-slate-200 rounded-lg pl-3 pr-3">Cancel</button>
+                <button type="button" name="addtaskcancel" onclick="addnewtaskclose()"
+                    class="border-2 border-slate-200 rounded-lg pl-3 pr-3">Cancel</button>
             </form>
             <script>
                 const usernamesubmit = document.getElementById("addtaskusername");
