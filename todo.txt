@@ -11,4 +11,5 @@ actually make add task formX
  - grab user fileX
  - store in "tasks" listX
  - fix server code to add task rn it only creats template file for userX
- - server now works on creating file add code for when adding task to preexisting file
+ - server now works on creating file add code for when adding task to preexisting fileX
+ - make sure that someone cant add a new task with the same name as one that already exists

@@ -112,9 +112,9 @@ app.get("/register", (req, res) => {
     const filepath = path.join(__dirname, "/src", "register.html");
     res.sendFile(filepath);
 });
+
 app.post("/addtask/submit", (req, res) => {
-    res.send(req.body);
-    fs.access("database/users/" + req.body.addtaskusername, fs.constants.F_OK, (err) => {
+    fs.access("database/users/" + req.body.addtaskusername + ".json", fs.constants.F_OK, (err) => {
         if (err) {
             //file does not exist
             let userdatatemplate = {
@@ -135,7 +135,7 @@ app.post("/addtask/submit", (req, res) => {
                         console.log("error reading accounts");
                     }
                     if (data) {
-                        userdata = JSON.parse(data);
+                        let userdata = JSON.parse(data);
                         userdata.tasks.push(req.body);
                         console.log("userdata: ", userdata);
                         fs.writeFile("database/users/" + req.body.addtaskusername + ".json", JSON.stringify(userdata), (err) => {
@@ -143,17 +143,36 @@ app.post("/addtask/submit", (req, res) => {
                                 console.log("error adding task", err);
                                 return;
                             }
-                        })
+                            res.redirect("/userpage");
+                        });
                     }
                 });
             });
         } else {
             //file exists
+            console.log("file exists");
+            fs.readFile("database/users/" + req.body.addtaskusername + ".json", "utf-8", (err, data) => {
+                if (err) {
+                    console.log("error creating user data file:", err);
+                    return;
+                }
+                if (data) {
+                    let userdata = JSON.parse(data);
+                    userdata.tasks.push(req.body);
+                    console.log(userdata.tasks);
+                    fs.writeFile("database/users/" + req.body.addtaskusername + ".json", JSON.stringify(userdata), (err) => {
+                        if (err) {
+                            console.log("error adding task", err);
+                            return;
+                        }
+                    });
+                    res.redirect("/userpage");
+                }
+            });
         }
 
 
     });
-    //do code for when user wants to add task
 });
 app.get("/login", (req, res) => {
     const filepath = path.join(__dirname, "/src", "login.html");
