@@ -29,7 +29,8 @@
 
         function welcomedisplay() {
             var date = new Date();
-            document.getElementById("welcomedisplay").textContent = (date.getMonth() + 1) + "-" + date.getDate() + ", " + date.toLocaleTimeString() + " - Welcome " + getCookieValue("username");
+            document.getElementById("welcomedisplay").textContent = date + " - Welcome " + getCookieValue("username");
+            //document.getElementById("welcomedisplay").textContent = (date.getMonth() + 1) + "-" + date.getDate() + ", " + date.toLocaleTimeString() + " - Welcome " + getCookieValue("username");
         }
 
         function allthestuff() {
@@ -42,11 +43,11 @@
 
 <body onload="allthestuff()">
     <div id="hiddenstuff" class="hidden">
-        <div id="tasktemplate" class="bg-white rounded-md w-60 h-48 overflow-hidden inline-block m-3 p-2">
+        <div id="tasktemplate" class="bg-white rounded-md w-60 h-52 overflow-hidden inline-block m-3 p-2">
             <p id="taskname">Task Name</p><br>
             <p id="taskdue">Task Due Date</p><br>
             <p id="taskpoints">Task Points</p><br>
-            <p id="tasklengths">Task Length</p><br>
+            <p id="tasklength">Task Length</p><br>
         </div>
     </div>
     <div class="bg-gradient-to-b from-orange-400 to-orange-700 flex flex-col">
@@ -65,11 +66,11 @@
             </span>
             <span>
                 <button class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
-                    href="register">testbutton to register</button>
+                    href="register">testbutton1</button>
             </span>
             <span>
                 <button class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
-                    href="login">testbutton to login</button>
+                    href="login">testbutton2</button>
             </span>
             <br>
             <br>
@@ -93,6 +94,16 @@
                                 const element = data.tasks[index];
                                 const taskclone = document.getElementById("tasktemplate").cloneNode(true);
                                 taskclone.id = "task" + index;
+                                taskclone.querySelector("#taskname").textContent = element.addtaskname;
+                                setInterval(function () {
+                                    const current = new Date();
+                                    const duedate = new Date(element.addtaskdatetime);
+                                    const remaining = duedate - current;
+                                    taskclone.querySelector("#taskdue").textContent = "In " + Math.floor((remaining) / (1000 * 60 * 60 * 24)) + " Days, " + (Math.floor(remaining / (1000 * 60 * 60)) % 24) + " Hours, " + (Math.floor(remaining / (1000 * 60)) % (60)) + " Minutes, " + (Math.floor(remaining / (1000)) % 60) + " Seconds";
+                                }, 1000);
+
+                                taskclone.querySelector("#taskpoints").textContent = element.addtaskpoints + " Points";
+                                taskclone.querySelector("#tasklength").textContent = element.addtasklength + " Hours To Complete";
                                 document.getElementById("taskcontainer").appendChild(taskclone);
                             }
                         })

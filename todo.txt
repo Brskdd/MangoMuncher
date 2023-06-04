@@ -18,7 +18,7 @@ load tasks onto webpageX
    - fix by adding in system to when it requests from database/users it actually worksX
    - server now recognizes when client is asking for database/users/XXX.json file and what XXX isX
 add functionality to sort tasks by reccomended, due next, most points, etc
-turn usertask data into like actual good looking stuff instead of the raw json
+turn usertask data into like actual good looking stuff instead of the raw jsonX
  - would look like thisX
    - XXXXXXXXXXXXXXXXX
    - X     study     X

@@ -53,5 +53,10 @@
     {
       "password": "$2b$10$EqO.V8heKtepRNHHRbJWZ.qw.AA/USwdkXV8x6AXMB5ujaGO3KZWO"
     }
+  ],
+  "exampleuser": [
+    {
+      "password": "$2b$10$TEGzYtuDzgPqN.dc7AWAguejwtuMoHhUB9I15t/BwavgODwo4QG.e"
+    }
   ]
 }
