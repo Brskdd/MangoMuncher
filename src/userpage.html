@@ -37,17 +37,27 @@
             setInterval(welcomedisplay, 100);
             welcomedisplay();
             document.getElementById("addtaskdiv").style.display = "none";
+            document.getElementById("removetaskdiv").style.display = "none";
         }
+
+        function removetask() {
+            document.getElementById("removetaskdiv").style.display = "flex";
+        }
+
+        function removetaskclose() {
+            document.getElementById("removetaskdiv").style.display = "none";
+        }
+
     </script>
 </head>
 
 <body onload="allthestuff()">
     <div id="hiddenstuff" class="hidden">
-        <div id="tasktemplate" class="bg-white rounded-md w-60 h-52 overflow-hidden inline-block m-3 p-2">
-            <p id="taskname">Task Name</p><br>
-            <p id="taskdue">Task Due Date</p><br>
-            <p id="taskpoints">Task Points</p><br>
-            <p id="tasklength">Task Length</p><br>
+        <div id="tasktemplate" class="bg-white rounded-md w-60 max-h-64 overflow-auto inline-block m-3 p-2">
+            <p id="taskname">Task Name</p>
+            <p id="taskdue">Task Due Date</p>
+            <p id="taskpoints">Task Points</p>
+            <p id="tasklength">Task Length</p>
         </div>
     </div>
     <div class="bg-gradient-to-b from-orange-400 to-orange-700 flex flex-col">
@@ -66,7 +76,7 @@
             </span>
             <span>
                 <button class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
-                    href="register">testbutton1</button>
+                    onclick="removetask()">Remove Task</button>
             </span>
             <span>
                 <button class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
@@ -76,7 +86,7 @@
             <br>
             <p class="text-white font-bold text-4xl">Recommended For You</p>
             <br>
-            <div id="taskcontainer" class="bg-opacity-20 rounded-md bg-black p-3 h-64 overflow-x-clip overflow-y-auto">
+            <div id="taskcontainer" class="bg-opacity-20 rounded-md bg-black p-3 h-72 overflow-x-clip overflow-y-auto">
 
 
 
@@ -151,8 +161,34 @@
                     class="border-2 border-slate-200 rounded-lg pl-3 pr-3">Cancel</button>
             </form>
             <script>
-                const usernamesubmit = document.getElementById("addtaskusername");
-                usernamesubmit.value = getCookieValue("username")
+                const addusernamesubmit = document.getElementById("addtaskusername");
+                addusernamesubmit.value = getCookieValue("username")
+            </script>
+        </div>
+    </div>
+
+    <!--Remove Task div-->
+    <div id="removetaskdiv" class="fixed inset-0 flex items-center justify-center z-50">
+        <div class="w-80 bg-white rounded-lg shadow-lg p-2">
+            <form id="removetaskform" action="http://localhost:3000/removetask/submit" method="POST">
+                <p class="font-bold text-lg text-center">Remove Task</p>
+                <hr class="m-3">
+                <label for="removetaskname">Task Name:</label>
+                <input type="text" id="removetaskname" name="removetaskname" class="border-2 border-slate-200 rounded-lg"
+                    required>
+                <br>
+                <br>
+                
+                <input type="hidden" name="removetaskusername" id="removetaskusername">
+
+                <button name="rmeovetasksubmit" class="border-2 border-slate-200 rounded-lg pl-3 pr-3"
+                    type="submit">Add</button>
+                <button type="button" name="removetaskcancel" onclick="removetaskclose()"
+                    class="border-2 border-slate-200 rounded-lg pl-3 pr-3">Cancel</button>
+            </form>
+            <script>
+                const removeusernamesubmit = document.getElementById("removetaskusername");
+                removeusernamesubmit.value = getCookieValue("username");
             </script>
         </div>
     </div>

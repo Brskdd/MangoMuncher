@@ -175,6 +175,43 @@ app.post("/addtask/submit", (req, res) => {
     });
 });
 
+app.post("/removetask/submit", (req, res) => {
+    fs.access("database/users/" + req.body.removetaskusername + ".json", fs.constants.F_OK, (err) => {
+        if (err) {
+            //file does not exist
+            res.status(404).send("file not found <3");
+        } else {
+            //file exists
+            console.log("file exists");
+            fs.readFile("database/users/" + req.body.removetaskusername + ".json", "utf-8", (err, data) => {
+                if (err) {
+                    console.log("error creating user data file:", err);
+                    return;
+                }
+                if (data) {
+                    let userdata = JSON.parse(data);
+                    //code to delete req.body from userdata.tasks
+                    for (let index = 0; index < userdata.tasks.length; index++) {
+                        const element = userdata.tasks[index];
+                        console.log(index, " element ", element.addtaskname);
+                        if (element.addtaskname == req.body.removetaskname) {
+                            userdata.tasks.splice(index, 1);
+                        }
+                    }
+                    console.log("lmao it works", req.body.removetaskname);
+                    fs.writeFile("database/users/" + req.body.removetaskusername + ".json", JSON.stringify(userdata), (err) => {
+                        if (err) {
+                            console.log("error removing task", err);
+                            return;
+                        }
+                    });
+                    res.redirect("/userpage");
+                }
+            });
+        }
+    });
+});
+
 //code for when the frontend requests a users/XXX.json file
 app.get("/database/users/:username.json", (req, res) => {
     const { username } = req.params;
