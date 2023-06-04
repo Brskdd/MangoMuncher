@@ -19,10 +19,11 @@ load tasks onto webpageX
    - server now recognizes when client is asking for database/users/XXX.json file and what XXX isX
 add functionality to sort tasks by reccomended, due next, most points, etc
 turn usertask data into like actual good looking stuff instead of the raw json
- - would look like this
+ - would look like thisX
    - XXXXXXXXXXXXXXXXX
    - X     study     X
    - X   due in:5h   X
    - X     2hrs      X
    - X     20 pts    X
    - XXXXXXXXXXXXXXXXX
+ - only displays template but its showing a piece for each taskX
