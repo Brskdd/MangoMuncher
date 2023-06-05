@@ -33,3 +33,13 @@ add button to delete taskX
  - frontend form to removeX
  - backend to processX
  - disabled if no tasksX
+
+
+
+POTENTIAL FUTURE THINGS
+mobile support
+task inheritance, like you could make an acct for the group and you can set your own acct to sync with the group acct and read what is going on for the group
+- group view could see (user has X tasks) just how many tasks they have
+- and it can be parent of parent so like company can see accounting has 12 tasks, accounting can see jim has 3 tasks
+a library to make it so that you can read and add tasks from code instead of having to use the webpage
+ai to predict/autofill things based on your habits
