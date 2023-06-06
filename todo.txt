@@ -43,3 +43,4 @@ task inheritance, like you could make an acct for the group and you can set your
 - and it can be parent of parent so like company can see accounting has 12 tasks, accounting can see jim has 3 tasks
 a library to make it so that you can read and add tasks from code instead of having to use the webpage
 ai to predict/autofill things based on your habits
+task splitting (i.e. make electrical component turns into get mats, strip, splice, solder etc)
