@@ -2,13 +2,13 @@ actually make add task formX
  - due dateX
  - pointsX
  - effortX
- - time to complete
+ - time to completeX
  - tags
  - exhaustion rate
  - priority override
 add description to what to put in the add task fields with one of those cool question mark in circle thingies
 potentially make the addtaskclose function can be used for all the buttons
-make system to save data on add task
+make system to save data on add taskX
  - grab user fileX
  - store in "tasks" listX
  - fix server code to add task rn it only creats template file for userX
@@ -33,8 +33,10 @@ add button to delete taskX
  - frontend form to removeX
  - backend to processX
  - disabled if no tasksX
-
-
+task splitting (i.e. make electrical component turns into get mats, strip, splice, solder etc)
+- shows percent bar of subtasks complete to complete task
+make hours to do support floats
+task sorting by date added, most/least points, and filter (i.e. hours < 2)
 
 POTENTIAL FUTURE THINGS
 mobile support
@@ -43,4 +45,4 @@ task inheritance, like you could make an acct for the group and you can set your
 - and it can be parent of parent so like company can see accounting has 12 tasks, accounting can see jim has 3 tasks
 a library to make it so that you can read and add tasks from code instead of having to use the webpage
 ai to predict/autofill things based on your habits
-task splitting (i.e. make electrical component turns into get mats, strip, splice, solder etc)
+if trying to access userpage without login redirect to login

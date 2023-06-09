@@ -51,7 +51,7 @@
     </script>
 </head>
 
-<body onload="allthestuff()">
+<body onload="allthestuff()" class="bg-orange-700">
     <div id="hiddenstuff" class="hidden">
         <div id="tasktemplate" class="bg-white rounded-md w-60 max-h-64 overflow-auto inline-block m-3 p-2">
             <p id="taskname">Task Name</p>
@@ -86,7 +86,7 @@
             <br>
             <p class="text-white font-bold text-4xl">Recommended For You</p>
             <br>
-            <div id="taskcontainer" class="bg-opacity-20 rounded-md bg-black p-3 h-72 overflow-x-clip overflow-y-auto">
+            <div id="taskcontainer" class="bg-opacity-20 rounded-md bg-black p-3 max-h-72 overflow-x-clip overflow-y-auto">
 
 
 
@@ -156,7 +156,7 @@
                 <input type="hidden" name="addtaskusername" id="addtaskusername">
 
                 <button name="addtasksubmit" class="border-2 border-slate-200 rounded-lg pl-3 pr-3"
-                    type="submit">Add</button>
+                    type="submit">OK</button>
                 <button type="button" name="addtaskcancel" onclick="addnewtaskclose()"
                     class="border-2 border-slate-200 rounded-lg pl-3 pr-3">Cancel</button>
             </form>
@@ -182,7 +182,7 @@
                 <input type="hidden" name="removetaskusername" id="removetaskusername">
 
                 <button name="rmeovetasksubmit" class="border-2 border-slate-200 rounded-lg pl-3 pr-3"
-                    type="submit">Add</button>
+                    type="submit">OK</button>
                 <button type="button" name="removetaskcancel" onclick="removetaskclose()"
                     class="border-2 border-slate-200 rounded-lg pl-3 pr-3">Cancel</button>
             </form>
