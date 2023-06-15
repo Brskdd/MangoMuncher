@@ -1,38 +1,7 @@
-actually make add task formX
- - due dateX
- - pointsX
- - effortX
- - time to completeX
- - tags
- - exhaustion rate
- - priority override
 add description to what to put in the add task fields with one of those cool question mark in circle thingies
 potentially make the addtaskclose function can be used for all the buttons
-make system to save data on add taskX
- - grab user fileX
- - store in "tasks" listX
- - fix server code to add task rn it only creats template file for userX
- - server now works on creating file add code for when adding task to preexisting fileX
- - make sure that someone cant add a new task with the same name as one that already exists
-load tasks onto webpageX
- - found the problem, cannot GET json fileX
-   - fix by adding in system to when it requests from database/users it actually worksX
-   - server now recognizes when client is asking for database/users/XXX.json file and what XXX isX
 add functionality to sort tasks by reccomended, due next, most points, etc
-turn usertask data into like actual good looking stuff instead of the raw jsonX
- - would look like thisX
-   - XXXXXXXXXXXXXXXXX
-   - X     study     X
-   - X   due in:5h   X
-   - X     2hrs      X
-   - X     20 pts    X
-   - XXXXXXXXXXXXXXXXX
- - only displays template but its showing a piece for each taskX
 figure out calculation system for priority
-add button to delete taskX
- - frontend form to removeX
- - backend to processX
- - disabled if no tasksX
 task splitting (i.e. make electrical component turns into get mats, strip, splice, solder etc)
 - shows percent bar of subtasks complete to complete task
 make hours to do support floats

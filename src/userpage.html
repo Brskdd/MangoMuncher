@@ -125,14 +125,22 @@
                                 switch (document.getElementById("sortby").value) {
                                     case "default":
                                     
+                                    break;
                                     case "mosturgent":
 
+                                    break;
                                     case "mostpoints":
 
+                                    break;
                                     case "mosttime":
 
+                                    break;
                                     case "formula":
 
+                                    break;
+                                    default:
+
+                                    break;
                                 }
 
                             listdata = basedata;
@@ -151,7 +159,7 @@
                                 }, 1000);
 
                                 taskclone.querySelector("#taskpoints").textContent = element.addtaskpoints + " Points";
-                                taskclone.querySelector("#tasklength").textContent = element.addtasklength + " Hours To Complete";
+                                taskclone.querySelector("#tasklength").textContent = element.addtasklength + " Minutes To Complete";
                                 document.getElementById("taskcontainer").appendChild(taskclone);
                             }
                         })
@@ -192,7 +200,7 @@
                     class="border-2 border-slate-200 rounded-lg" required>
                 <br>
                 <br>
-                <label for="addtasklength">Hours To Complete:</label>
+                <label for="addtasklength">Minutes To Complete:</label>
                 <input type="number" id="addtasklength" name="addtasklength"
                     class="border-2 border-slate-200 rounded-lg" required>
                 <br>
