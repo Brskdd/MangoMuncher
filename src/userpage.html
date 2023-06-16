@@ -111,66 +111,76 @@
 
 
 
-                    document.getElementById("pisscum").textContent = document.getElementById("sortby").value;
 
-                    fetch("/database/users/" + getCookieValue("username") + ".json")
-                        .then(response => response.json())
-                        .then(data => {
-                            const basedata = data.tasks;
-                            const neworder = [];
-                            //sorting and filter shit
-                            for (let index = 0; index < basedata.length; index++) {
-                            
-                            };
-                                switch (document.getElementById("sortby").value) {
-                                    case "default":
-                                    
-                                    break;
-                                    case "mosturgent":
-
-                                    break;
-                                    case "mostpoints":
-
-                                    break;
-                                    case "mosttime":
-
-                                    break;
-                                    case "formula":
-
-                                    break;
-                                    default:
-
-                                    break;
-                                }
-
-                            listdata = basedata;
-
-                            //document.getElementById("usertasks").textContent = JSON.stringify(data);
-                            for (let index = 0; index < listdata.length; index++) {
-                                const element = listdata[index];
-                                const taskclone = document.getElementById("tasktemplate").cloneNode(true);
-                                taskclone.id = "task" + index;
-                                taskclone.querySelector("#taskname").textContent = element.addtaskname;
-                                setInterval(function () {
-                                    const current = new Date();
-                                    const duedate = new Date(element.addtaskdatetime);
-                                    const remaining = duedate - current;
-                                    taskclone.querySelector("#taskdue").textContent = "In " + Math.floor((remaining) / (1000 * 60 * 60 * 24)) + " Days, " + (Math.floor(remaining / (1000 * 60 * 60)) % 24) + " Hours, " + (Math.floor(remaining / (1000 * 60)) % (60)) + " Minutes, " + (Math.floor(remaining / (1000)) % 60) + " Seconds";
-                                }, 1000);
-
-                                taskclone.querySelector("#taskpoints").textContent = element.addtaskpoints + " Points";
-                                taskclone.querySelector("#tasklength").textContent = element.addtasklength + " Minutes To Complete";
-                                document.getElementById("taskcontainer").appendChild(taskclone);
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error fetching user tasks:', error);
-                        });
 
 
 
                     document.getElementById("sortby").addEventListener("change", () => {
-                        document.getElementById("pisscum").textContent = document.getElementById("sortby").value;
+                        //document.getElementById("pisscum").textContent = JSON.stringify(listdata);
+                        document.getElementById("taskcontainer").innerHTML = "";
+                        fetch("/database/users/" + getCookieValue("username") + ".json")
+                            .then(response => response.json())
+                            .then(data => {
+                                const basedata = data.tasks;
+                                const neworder = [];
+                                //sorting and filter shit
+                                for (let index = 0; index < basedata.length; index++) {
+
+                                };
+                                switch (document.getElementById("sortby").value) {
+                                    case "default":
+                                        listdata = basedata;
+                                        break;
+                                    case "mosturgent":
+                                        listdata = basedata.sort((a, b) => {
+                                            return parseFloat(a.addtaskdue) - parseFloat(b.addtaskdue);
+                                        });
+                                        break;
+                                    case "mostpoints":
+                                        listdata = basedata.sort((a, b) => {
+                                            return parseInt(a.addtaskpoints) - parseInt(b.addtaskpoints);
+                                        });
+                                        //document.getElementById("pisscum").textContent = JSON.stringify(listdata);
+                                        break;
+                                    case "mosttime":
+                                        listdata = basedata.sort((a, b) => {
+                                            return parseFloat(a.addtasklength) - parseFloat(b.addtasklength);
+                                        });
+                                        break;
+                                    case "formula":
+
+                                        break;
+                                    default:
+                                        listdata = basedata;
+                                        break;
+                                }
+
+
+                                //document.getElementById("pisscum").textContent = JSON.stringify(basedata);
+
+                                //document.getElementById("usertasks").textContent = JSON.stringify(data);
+                                for (let index = 0; index < listdata.length; index++) {
+                                    const element = listdata[index];
+                                    const taskclone = document.getElementById("tasktemplate").cloneNode(true);
+                                    taskclone.id = "task" + index;
+                                    taskclone.querySelector("#taskname").textContent = element.addtaskname;
+                                    setInterval(function () {
+                                        const current = new Date();
+                                        const duedate = new Date(element.addtaskdatetime);
+                                        const remaining = duedate - current;
+                                        taskclone.querySelector("#taskdue").textContent = "In " + Math.floor((remaining) / (1000 * 60 * 60 * 24)) + " Days, " + (Math.floor(remaining / (1000 * 60 * 60)) % 24) + " Hours, " + (Math.floor(remaining / (1000 * 60)) % (60)) + " Minutes, " + (Math.floor(remaining / (1000)) % 60) + " Seconds";
+                                    }, 1000);
+
+                                    taskclone.querySelector("#taskpoints").textContent = element.addtaskpoints + " Points";
+                                    taskclone.querySelector("#tasklength").textContent = element.addtasklength + " Hours To Complete";
+                                    document.getElementById("taskcontainer").appendChild(taskclone);
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error fetching user tasks:', error);
+                            });
+
+
                     });
                 </script>
             </div>
@@ -200,7 +210,7 @@
                     class="border-2 border-slate-200 rounded-lg" required>
                 <br>
                 <br>
-                <label for="addtasklength">Minutes To Complete:</label>
+                <label for="addtasklength">Hours To Complete:</label>
                 <input type="number" id="addtasklength" name="addtasklength"
                     class="border-2 border-slate-200 rounded-lg" required>
                 <br>
