@@ -62,7 +62,8 @@
     </div>
     <div class="bg-gradient-to-b from-orange-400 to-orange-700 flex flex-col">
         <div class="h-screen p-3">
-            <div class="bg-black bg-opacity-20 shadow-lg rounded-md flex-grow flex-shrink-0 p-2 h-48">
+            <p class="text-white font-bold text-4xl">Timeline</p>
+            <div class="bg-black bg-opacity-20 shadow-lg rounded-md flex-grow flex-shrink-0 p-2 h-48 m-3">
 
             </div>
             <br>
@@ -148,7 +149,7 @@
                                         document.getElementById("pisscum").textContent = "nyaaa <3 *shits on the bed*";
                                         listdata = basedata.sort((a, b) => {
                                             return parseFloat(a.addtasklength) - parseFloat(b.addtasklength);
-                                            
+
                                         });
 
                                         break;
@@ -179,7 +180,7 @@
                                     taskclone.querySelector("#taskpoints").textContent = element.addtaskpoints + " Points";
                                     taskclone.querySelector("#tasklength").textContent = element.addtasklength + " Hours To Complete";
                                     document.getElementById("taskcontainer").appendChild(taskclone);
-                                    
+
                                 }
                             })
                             .catch(error => {
