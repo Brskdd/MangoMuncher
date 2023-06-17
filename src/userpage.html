@@ -132,10 +132,10 @@
                                         break;
                                     case "mosturgent":
                                         listdata = basedata.sort((a, b) => {
-                                            adate = new Date(a.addtaskdatetime);
-                                            console.log(Date(adate).getTime());
-                                            //console.log(Date(a.addtaskdatetime).getTime());
-                                            //return Date(a.addtaskdatetime).getTime() - Date(b.addtaskdatetime).getTime();
+                                            adate = new Date(a.addtaskdatetime).getTime();
+                                            bdate = new Date(b.addtaskdatetime).getTime();
+                                            console.log(adate);
+                                            return adate - bdate;
                                         });
                                         break;
                                     case "mostpoints":
