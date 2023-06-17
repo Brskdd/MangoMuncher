@@ -90,7 +90,7 @@
                 <option value="default">Order Added</option>
                 <option value="mosturgent">Most Urgent</option>
                 <option value="mostpoints">Most Points</option>
-                <option value="mostime">Most Time</option>
+                <option value="mosttime">Most Time</option>
                 <option value="formula">Formula</option>
             </select>
             <p name="pisscum" id="pisscum">asrolfkghdsfladksfhj</p>
@@ -113,9 +113,8 @@
 
 
 
-
-
-                    document.getElementById("sortby").addEventListener("change", () => {
+                    function DoSexyShit() {
+                        document.getElementById("pisscum").textContent = document.getElementById("sortby").value;
                         //document.getElementById("pisscum").textContent = JSON.stringify(listdata);
                         document.getElementById("taskcontainer").innerHTML = "";
                         fetch("/database/users/" + getCookieValue("username") + ".json")
@@ -143,9 +142,12 @@
                                         //document.getElementById("pisscum").textContent = JSON.stringify(listdata);
                                         break;
                                     case "mosttime":
+                                        document.getElementById("pisscum").textContent = "nyaaa <3 *shits on the bed*";
                                         listdata = basedata.sort((a, b) => {
                                             return parseFloat(a.addtasklength) - parseFloat(b.addtasklength);
+
                                         });
+
                                         break;
                                     case "formula":
 
@@ -179,9 +181,14 @@
                             .catch(error => {
                                 console.error('Error fetching user tasks:', error);
                             });
+                    }
+
+                    document.getElementById("sortby").addEventListener("change", () => {
+                        DoSexyShit();
 
 
                     });
+                    DoSexyShit();
                 </script>
             </div>
         </div>
