@@ -53,7 +53,7 @@
 
 <body onload="allthestuff()" class="bg-orange-700">
     <div id="hiddenstuff" class="hidden">
-        <div id="tasktemplate" class="bg-white rounded-md w-60 max-h-64 overflow-auto inline-block m-3 p-2">
+        <div id="tasktemplate" class="bg-white rounded-md max-h-64 overflow-auto inline-block m-3 p-2">
             <p id="taskname">Task Name</p>
             <p id="taskdue">Task Due Date</p>
             <p id="taskpoints">Task Points</p>
@@ -97,7 +97,7 @@
             <br>
             <br>
             <div id="taskcontainer"
-                class="bg-opacity-20 rounded-md bg-black p-3 max-h-72 overflow-x-clip overflow-y-auto">
+                class="bg-opacity-20 rounded-md bg-black p-3 max-h-48 overflow-x-scroll overflow-y-hidden whitespace-nowrap">
 
 
 
@@ -113,7 +113,7 @@
 
 
 
-                    function DoSexyShit() {
+                    function dosexyshit() {
                         document.getElementById("pisscum").textContent = document.getElementById("sortby").value;
                         //document.getElementById("pisscum").textContent = JSON.stringify(listdata);
                         document.getElementById("taskcontainer").innerHTML = "";
@@ -132,7 +132,10 @@
                                         break;
                                     case "mosturgent":
                                         listdata = basedata.sort((a, b) => {
-                                            return parseFloat(a.addtaskdue) - parseFloat(b.addtaskdue);
+                                            adate = new Date(a.addtaskdatetime);
+                                            console.log(Date(adate).getTime());
+                                            //console.log(Date(a.addtaskdatetime).getTime());
+                                            //return Date(a.addtaskdatetime).getTime() - Date(b.addtaskdatetime).getTime();
                                         });
                                         break;
                                     case "mostpoints":
@@ -145,7 +148,7 @@
                                         document.getElementById("pisscum").textContent = "nyaaa <3 *shits on the bed*";
                                         listdata = basedata.sort((a, b) => {
                                             return parseFloat(a.addtasklength) - parseFloat(b.addtasklength);
-
+                                            
                                         });
 
                                         break;
@@ -176,6 +179,7 @@
                                     taskclone.querySelector("#taskpoints").textContent = element.addtaskpoints + " Points";
                                     taskclone.querySelector("#tasklength").textContent = element.addtasklength + " Hours To Complete";
                                     document.getElementById("taskcontainer").appendChild(taskclone);
+                                    
                                 }
                             })
                             .catch(error => {
@@ -184,11 +188,11 @@
                     }
 
                     document.getElementById("sortby").addEventListener("change", () => {
-                        DoSexyShit();
-
+                        dosexyshit();
 
                     });
-                    DoSexyShit();
+                    dosexyshit();
+                    console.log("test");
                 </script>
             </div>
         </div>
