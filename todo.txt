@@ -1,7 +1,5 @@
 add description to what to put in the add task fields with one of those cool question mark in circle thingies
 figure out calculation system for priority
-task splitting (i.e. make electrical component turns into get mats, strip, splice, solder etc)
-- shows percent bar of subtasks complete to complete task
 task sorting by date added, most/least points, and filter (i.e. hours < 2)
 timeline system
 
@@ -13,3 +11,5 @@ task inheritance, like you could make an acct for the group and you can set your
 a library to make it so that you can read and add tasks from code instead of having to use the webpage
 ai to predict/autofill things based on your habits
 if trying to access userpage without login redirect to login
+task splitting (i.e. make electrical component turns into get mats, strip, splice, solder etc)
+- shows percent bar of subtasks complete to complete task
