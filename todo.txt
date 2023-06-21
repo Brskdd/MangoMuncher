@@ -1,3 +1,12 @@
+GO MAKE THE SYSTEM TO READ AND WRITE ENERGY FOCUS AND MOOD IN data.mood WHEN PULLED FROM THE SERVER WHENEVER THE USER INPUTS HOW THEY FEEL
+THEN DO THE FANCY AI SHIT OR WHATEVER TO FIGURE OUT OVERALL MOOD AND STUFF
+
+
+
+
+
+
+
 add description to what to put in the add task fields with one of those cool question mark in circle thingies
 figure out calculation system for priority
 task sorting by date added, most/least points, and filter (i.e. hours < 2)

@@ -65,6 +65,13 @@
             <p class="text-white font-bold text-4xl">Timeline</p>
             <div class="bg-black bg-opacity-20 shadow-lg rounded-md flex-grow flex-shrink-0 p-2 h-48 m-3">
 
+                <!--meow meow meow X3 X3 X3 timeline-->
+
+
+
+
+
+
             </div>
             <br>
             <p id="welcomedisplay" class="text-white font-bold text-4xl">lmao if you see this the webpage messed up lol
@@ -196,6 +203,35 @@
                     console.log("test");
                 </script>
             </div>
+            <br>
+            <p class="text-white font-bold text-4xl">Stats</p>
+            <!--show stats-->
+            <ul>
+                <li id="energylevel" class="text-white font-bold text-2xl">Energy: </li>
+                <li id="energylevel" class="text-white font-bold text-2xl">Focus: </li>
+                <li id="energylevel" class="text-white font-bold text-2xl">Mood: </li>
+                <!--
+                   High Energy, High Mood, High Focus: Optimal State
+High Energy, High Mood, Low Focus: Energetic and Distracted
+High Energy, Low Mood, High Focus: Driven
+High Energy, Low Mood, Low Focus: Restless
+Low Energy, High Mood, High Focus: Focused and Content
+Low Energy, High Mood, Low Focus: Relaxed and Distracted
+Low Energy, Low Mood, High Focus: Determined
+Low Energy, Low Mood, Low Focus: Fatigued and Unfocused
+                -->
+            </ul>
+            <p id="meowmeownya"></p>
+            <script>
+                fetch("/database/users/" + getCookieValue("username") + ".json")
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("meowmeownya").textContent = JSON.stringify(data);
+                    });
+            </script>
+
+
+
         </div>
     </div>
 
