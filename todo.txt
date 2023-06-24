@@ -1,6 +1,8 @@
 GO MAKE THE SYSTEM TO READ AND WRITE ENERGY FOCUS AND MOOD IN data.mood WHEN PULLED FROM THE SERVER WHENEVER THE USER INPUTS HOW THEY FEEL
 THEN DO THE FANCY AI SHIT OR WHATEVER TO FIGURE OUT OVERALL MOOD AND STUFF
-
+ - added the hour bar things
+  - need to make them inside the timeline div and stretch to fit the full space
+ - then figure out priority formula and run it on 5 minute interval of times and load the highest priority task
 
 
 
