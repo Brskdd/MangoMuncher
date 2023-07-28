@@ -7,8 +7,43 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+
         function priority(time, points, length) {
             return (points / (length ^ 0.5) / (time ^ 1.5));
+        };
+        function prioritiest(offset) {
+            document.getElementById("pisscum").textContent = document.getElementById("sortby").value;
+            //document.getElementById("pisscum").textContent = JSON.stringify(listdata);
+            fetch("/database/users/" + getCookieValue("username") + ".json")
+                .then(response => response.json())
+                .then(data => {
+                    let current = new Date();
+                    current.setMinutes(current.getMinutes() + offset);
+                    //console.log(current.getHours());
+                    let prioritylist = new Array();
+                    //console.log("woof woof " + current.getHours());
+                    for (let index = 0; index < data.tasks.length; index++) {
+                        let selected = data.tasks[index];
+                        let diff = Math.abs(new Date(selected.addtaskdatetime).getTime() - current.getTime());
+
+                        //console.log("meow meow " + diff);
+                        //console.log(("time" + (diff) + "points" + selected.addtaskpoints + "length" + selected.addtasklength));
+                        prioritylist.push(priority(selected.addtaskpoints, diff / 36000000, selected.addtaskpoints));
+
+                    }
+                    console.log("old " + prioritylist);
+                    newprioritylist = prioritylist.sort();
+                    console.log("new " + newprioritylist);
+                    //console.log(data.tasks);
+                    for (let index = 0; index < prioritylist.length; index++) {
+                        element = prioritylist[index];
+                        console.log(element);
+                        if (element == newprioritylist[0]) {
+                            console.log(data.tasks[index].addtaskname);
+                            return data.tasks[index].addtaskname;
+                        }
+                    }
+                });
         };
         function getCookieValue(cookieName) {
             const cookies = document.cookie.split(';');
@@ -112,16 +147,19 @@
             <br>
 
             <span>
-                <button class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
+                <button
+                    class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300 hover:-translate-y-1 transition duration-100 transform"
                     onclick="addnewtask()">Add Task</button>
             </span>
             <span>
-                <button class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
+                <button
+                    class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300 hover:-translate-y-1 transition duration-100 transform"
                     onclick="removetask()">Remove Task</button>
             </span>
             <span>
-                <button class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300"
-                    href="login">testbutton2</button>
+                <button
+                    class="bg-white text-black font-bold text-lg rounded-lg shadow-md p-5 hover:bg-slate-300 hover:-translate-y-1 transition duration-100 transform"
+                    onclick="prioritiest(0)">View Stats</button>
             </span>
             <br>
             <br>
@@ -197,9 +235,9 @@
                                         listdata = basedata.sort((a, b) => {
                                             let current = new Date();
                                             adate = new Date(a.addtaskdatetime).getTime();
-                                            adate = (adate - current)/36000000;
+                                            adate = (adate - current) / 36000000;
                                             bdate = new Date(b.addtaskdatetime).getTime();
-                                            bdate = (bdate - current)/36000000;
+                                            bdate = (bdate - current) / 36000000;
                                             console.log(a.addtaskname + " " + adate);
                                             return priority(adate, parseInt(a.addtaskpoints), parseFloat(a.addtasklength)) - priority(bdate, parseInt(b.addtaskpoints), parseFloat(b.addtasklength));
                                         });
@@ -245,13 +283,15 @@
                 </script>
             </div>
             <br>
-            <p class="text-white font-bold text-4xl">Status</p>
-            <!--show stats-->
-            <ul>
-                <li id="energylevel" class="text-white font-bold text-2xl">Energy: </li>
-                <li id="energylevel" class="text-white font-bold text-2xl">Focus: </li>
-                <li id="energylevel" class="text-white font-bold text-2xl">Mood: </li>
-                <!--
+            <div class="hidden">
+                <p class="text-white font-bold text-4xl">Status</p>
+                <!--show stats-->
+
+                <ul>
+                    <li id="energylevel" class="text-white font-bold text-2xl">Energy: </li>
+                    <li id="energylevel" class="text-white font-bold text-2xl">Focus: </li>
+                    <li id="energylevel" class="text-white font-bold text-2xl">Mood: </li>
+                    <!--
                    High Energy, High Mood, High Focus: Optimal State
 High Energy, High Mood, Low Focus: Energetic and Distracted
 High Energy, Low Mood, High Focus: Driven
@@ -261,16 +301,16 @@ Low Energy, High Mood, Low Focus: Relaxed and Distracted
 Low Energy, Low Mood, High Focus: Determined
 Low Energy, Low Mood, Low Focus: Fatigued and Unfocused
                 -->
-            </ul>
-            <p id="meowmeownya"></p>
-            <script>
-                fetch("/database/users/" + getCookieValue("username") + ".json")
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById("meowmeownya").textContent = JSON.stringify(data);
-                    });
-            </script>
-
+                </ul>
+                <p id="meowmeownya"></p>
+                <script>
+                    fetch("/database/users/" + getCookieValue("username") + ".json")
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById("meowmeownya").textContent = JSON.stringify(data);
+                        });
+                </script>
+            </div>
 
 
         </div>
