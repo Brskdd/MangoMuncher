@@ -3,6 +3,7 @@ THEN DO THE FANCY AI SHIT OR WHATEVER TO FIGURE OUT OVERALL MOOD AND STUFF
  - added the hour bar things
   - need to make them inside the timeline div and stretch to fit the full space
  - then figure out priority formula and run it on 5 minute interval of times and load the highest priority task
+  - there is disparity between the button for prioritiest and sort by urgency formulas, suspecting it has something to do with the math for overdue things
 
 
 
